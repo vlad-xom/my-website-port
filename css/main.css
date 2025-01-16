@@ -1,0 +1,773 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --index: calc(1vw + 1vh)
+}
+@font-face {
+    font-family: ralewat_f;
+    src: url(../fonts/raleway-regular.woff2);
+}
+@font-face {
+    font-family: ralewat_f;
+    src: url(../fonts/raleway-black.woff2);
+    font-weight: 900;
+}
+
+body {
+    background: linear-gradient(90deg, #000, #2f1347); /* Градієнтний фон */
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: raleway_f, sans-serif;
+    line-height: 1.55;
+    font-family: "Poppins", serif;
+}
+.layers__base{
+    background: linear-gradient(90deg, #6366f1, #a855f7); /* Градієнтний фон */
+}
+.main-header{
+    position: relative;
+}/*
+.main-header::after{
+    content: '';
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: calc(var(--index) * 10);
+    background-image: url(../img/ground.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    bottom: calc(var(--index) * -4.5);
+}*/
+.layers{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+
+}
+.layer{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+    z-index: 2;
+}
+.layers__base{
+    transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
+    z-index: 0;
+}
+.layers__midle{
+    transform: translate3d(0, calc(var(--scrollTop) / 2.5), 0);
+}
+.layers__front{
+    transform: translate3d(0, calc(var(--scrollTop) / 5.7), 0);
+}
+.layers__title{
+    font-size: calc(var(--index) * 2.5);
+    letter-spacing: calc(var(--index) / 2.25);
+}
+.layers__caption{
+    font-size: calc(var(--index) / 1.175);
+    letter-spacing: calc(var(--index) / 3.5);
+    margin-top: calc(var(--index) * -0.75);
+    font-size: 2em; /* Розмір тексту */
+    font-weight: bold; /* Жирність тексту */
+    background: linear-gradient(90deg, #6366f1, #a855f7); /* Градієнтний фон */
+    -webkit-background-clip: text; /* Вирізати фон у тексті (для WebKit) */
+    -webkit-text-fill-color: transparent; /* Прозорий текст */
+    display: inline-block; /* Щоб фон застосовувався лише до тексту */
+    text-shadow: 0 0 20px #a855f7;
+}
+.layer__header{
+    z-index: 1;
+    transform: translate3d(0, calc(var(--scrollTop) / 3.3), 0);
+    will-change: transform;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 0 50px #a855f7;
+}
+
+.main-article{
+    min-height: 100vh;
+}
+.main-article__about{
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column; /* Вирівнюємо елементи вертикально */
+    justify-content: center; /* Центруємо по вертикалі */
+    align-items: center; /* Центруємо по горизонталі */
+    text-align: center; /* Центруємо текст у блоках */
+    text-shadow: 0 0 50px #a855f7;
+}
+.main-article__about p{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgb(167, 167, 167);
+}
+.main-article__title{
+    font-size: 3.5em; /* Розмір тексту */
+    font-weight: bold; /* Жирність тексту */
+    background: linear-gradient(90deg, #6366f1, #a855f7); /* Градієнтний фон */
+    -webkit-background-clip: text; /* Вирізати фон у тексті (для WebKit) */
+    -webkit-text-fill-color: transparent; /* Прозорий текст */
+    display: inline-block; /* Щоб фон застосовувався лише до тексту */
+}
+.main-article__content{
+    display: flex;
+    justify-content: space-around;
+    padding: 100px 100px;
+}
+.box-main__text{
+    width: 600px;
+}
+.box-main__text h1{
+    font-size: 2.8em; /* Розмір тексту */
+    font-weight: bold; /* Жирність тексту */
+    background: linear-gradient(90deg, #6366f1, #a855f7); /* Градієнтний фон */
+    -webkit-background-clip: text; /* Вирізати фон у тексті (для WebKit) */
+    -webkit-text-fill-color: transparent; /* Прозорий текст */
+    display: inline-block; /* Щоб фон застосовувався лише до тексту */
+    margin-bottom: 2px;
+    text-shadow: 0 0 30px #a855f7;
+}
+.box-main__text p{
+    font-family: "Fira Sans", serif;
+    margin-bottom: 40px;
+    letter-spacing: 1.3px;
+    font-weight: 600;
+    color: rgb(167, 167, 167);
+}
+.main-box__btn{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.btn-main__box{
+    display: flex;
+    align-items: center;
+    padding: 13px;
+    border: 2px solid #a855f7;
+    border-radius: 20px;
+    transition: all .2s;
+    box-shadow: 0 0 20px 2px #a855f7; /* Світіння обводки при наведенні */
+}
+.btn-main__box:hover{
+    background-color: #240344;
+}
+.box-img{
+    width: 400px; /* Ширина контейнера */
+    height: 400px; /* Висота контейнера (має бути рівною ширині для кола) */
+    border: 5px solid #6366f1; /* Товщина і колір рамки */
+    border-radius: 50%; /* Робить елемент круглим */
+    overflow: hidden; /* Приховує частини зображення, що виходять за межі кола */
+    display: flex; /* Центрує зображення всередині контейнера */
+    justify-content: center;
+    align-items: center;
+    background-color: #010101;
+    transition: all .5s;
+    box-shadow: 0 0 20px 2px #a855f7; 
+}
+.box-img:hover{
+    background-color: #221232;
+}
+.box-img img{
+    width: 400px;
+    height: 500px;
+}
+
+.block-info{
+    padding: 50px 100px;
+}
+.block-1__info{
+    display: flex;
+    justify-content: space-between;
+}
+.info-title__box{
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column; /* Вирівнюємо елементи вертикально */
+    justify-content: center; /* Центруємо по вертикалі */
+    align-items: center; /* Центруємо по горизонталі */
+    text-align: center; /* Центруємо текст у блоках */
+    text-shadow: 0 0 50px #a855f7;
+}
+.info-title__box h2{
+    font-size: 3.5em; /* Розмір тексту */
+    font-weight: bold; /* Жирність тексту */
+    background: linear-gradient(90deg, #6366f1, #a855f7); /* Градієнтний фон */
+    -webkit-background-clip: text; /* Вирізати фон у тексті (для WebKit) */
+    -webkit-text-fill-color: transparent; /* Прозорий текст */
+    display: inline-block; /* Щоб фон застосовувався лише до тексту */
+}
+.block-colege{
+    width: 400px;
+    padding: 25px;
+    border: 2px solid #a855f7;
+    border-radius: 20px;
+    transition: all .3s;
+}
+.block-colege:hover{
+    box-shadow: 0 0 20px 2px #a855f7; /* Світіння обводки при наведенні */
+}
+.colege-top h3{
+    text-align: center;
+    font-size: 1.8em; /* Розмір тексту */
+    font-weight: bold; /* Жирність тексту */
+    background: linear-gradient(90deg, #6366f1, #a855f7); /* Градієнтний фон */
+    text-shadow: 0 0 50px #a855f7;
+    -webkit-background-clip: text; /* Вирізати фон у тексті (для WebKit) */
+    -webkit-text-fill-color: transparent; /* Прозорий текст */
+    font-family: "Fira Sans", serif;
+}
+.colege-top img{
+    height: 260px;
+    width: 100%;
+    font-family: "Fira Sans", serif;
+}
+.colege-bottom{
+    text-align: center;
+    font-family: "Fira Sans", serif;
+}
+.block-1__left{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+.colege-bottom h3{
+    font-size: 1.8em; /* Розмір тексту */
+    font-weight: bold; /* Жирність тексту */
+    background: linear-gradient(90deg, #6366f1, #a855f7); /* Градієнтний фон */
+    text-shadow: 0 0 50px #a855f7;
+    -webkit-background-clip: text; /* Вирізати фон у тексті (для WebKit) */
+    -webkit-text-fill-color: transparent; /* Прозорий текст */
+    display: inline-block; /* Щоб фон застосовувався лише до тексту */
+}
+.colege-bottom p{
+    color: rgb(167, 167, 167);
+    text-align: center;
+    margin-bottom: 10px;
+}
+.colege-bottom a{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+}
+.link-colege{
+    display: flex;
+    justify-content: center;
+    padding: 13px;
+    border: 2px solid #a855f7;
+    border-radius: 20px;
+    transition: all .2s;
+    box-shadow: 0 0 20px 2px #a855f7; /* Світіння обводки при наведенні */
+}
+.link-colege:hover{
+    background-color: #401a63;
+}
+.block-kp{
+    width: 400px;
+    padding: 25px;
+    border: 2px solid #a855f7;
+    border-radius: 20px;
+    transition: all .3s;
+}
+.block-kp:hover{
+    box-shadow: 0 0 20px 2px #a855f7; /* Світіння обводки при наведенні */
+}
+.kp-top h3{
+    text-align: center;
+    font-size: 1.8em; /* Розмір тексту */
+    font-weight: bold; /* Жирність тексту */
+    background: linear-gradient(90deg, #6366f1, #a855f7); /* Градієнтний фон */
+    text-shadow: 0 0 50px #a855f7;
+    -webkit-background-clip: text; /* Вирізати фон у тексті (для WebKit) */
+    -webkit-text-fill-color: transparent; /* Прозорий текст */
+    font-family: "Fira Sans", serif;
+    margin-top: 10px;
+}
+.kp-top img{
+    margin-top: 30px;
+    height: 260px;
+    width: 100%;
+    font-family: "Fira Sans", serif;
+}
+.kp-bottom h3{
+    font-size: 1.8em; /* Розмір тексту */
+    font-weight: bold; /* Жирність тексту */
+    background: linear-gradient(90deg, #6366f1, #a855f7); /* Градієнтний фон */
+    text-shadow: 0 0 50px #a855f7;
+    -webkit-background-clip: text; /* Вирізати фон у тексті (для WebKit) */
+    -webkit-text-fill-color: transparent; /* Прозорий текст */
+    display: inline-block; /* Щоб фон застосовувався лише до тексту */
+}
+.kp-bottom p{
+    color: rgb(167, 167, 167);
+    text-align: center;
+    margin-bottom: 10px;
+}
+.kp-bottom a{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+}
+.link-kp{
+    display: flex;
+    justify-content: center;
+    padding: 13px;
+    border: 2px solid #a855f7;
+    border-radius: 20px;
+    transition: all .2s;
+    box-shadow: 0 0 20px 2px #a855f7; /* Світіння обводки при наведенні */
+}
+.link-kp:hover{
+    background-color: #401a63;
+}
+.kp-top img{
+    height: 260px;
+    width: 100%;
+    font-family: "Fira Sans", serif;
+}
+.kp-bottom{
+    text-align: center;
+    font-family: "Fira Sans", serif;
+}
+.block-1__right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.animated-gif {
+    width: 100%; /* Можна змінити розмір GIF */
+    max-width: 500px; /* Максимальний розмір */
+    height: auto;
+}
+iframe {
+    border-radius: 40px;
+    box-shadow: 0 0 20px 2px #a855f7; /* Світіння обводки при наведенні */
+    width: 600px;
+    height: 100%;
+}
+.block-list{
+    padding: 50px 100px;
+}
+.block-list__title{
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column; /* Вирівнюємо елементи вертикально */
+    justify-content: center; /* Центруємо по вертикалі */
+    align-items: center; /* Центруємо по горизонталі */
+    text-align: center; /* Центруємо текст у блоках */
+    text-shadow: 0 0 50px #a855f7;
+}
+.block-list__title h2{
+    font-size: 3.5em; /* Розмір тексту */
+    font-weight: bold; /* Жирність тексту */
+    background: linear-gradient(90deg, #6366f1, #a855f7); /* Градієнтний фон */
+    -webkit-background-clip: text; /* Вирізати фон у тексті (для WebKit) */
+    -webkit-text-fill-color: transparent; /* Прозорий текст */
+    display: inline-block; /* Щоб фон застосовувався лише до тексту */
+}
+.contact-form h2{
+    font-size: 3.5em; /* Розмір тексту */
+    font-weight: bold; /* Жирність тексту */
+    background: linear-gradient(90deg, #6366f1, #a855f7); /* Градієнтний фон */
+    -webkit-background-clip: text; /* Вирізати фон у тексті (для WebKit) */
+    -webkit-text-fill-color: transparent; /* Прозорий текст */
+    display: inline-block; /* Щоб фон застосовувався лише до тексту */
+}
+.contact-form button{
+    font-size: 1.5em; /* Розмір тексту */
+    font-weight: bold; /* Жирність тексту */
+    display: inline-block; /* Щоб фон застосовувався лише до тексту */
+}
+.form-group label{
+    font-weight: bold; /* Жирність тексту */
+    background: linear-gradient(90deg, #6366f1, #a855f7); /* Градієнтний фон */
+    -webkit-background-clip: text; /* Вирізати фон у тексті (для WebKit) */
+    -webkit-text-fill-color: transparent; /* Прозорий текст */
+    display: inline-block; /* Щоб фон застосовувався лише до тексту */
+}
+.block-2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-family: "Fira Sans", serif;
+}
+
+.block-list__left,
+.block-list__right {
+    flex: 1;
+}
+
+
+/* Контейнер для проєктів */
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+/* Карточка */
+.project-card {
+    background-color: #2f1347;
+    border: 2px solid #a855f7;
+    border-radius: 10px;
+    width: calc(50% - 10px); /* Дві карточки в рядок */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 40px 2px #a855f7; /* Світіння обводки при наведенні */
+}
+
+/* Зображення */
+.project-card img {
+    width: 100%;
+    max-height: 245px;
+    object-fit: cover;
+}
+
+/* Заголовок */
+.project-card h4 {
+    font-size: 20px;
+    margin: 10px 0;
+    font-size: 1.8em; /* Розмір тексту */
+    font-weight: bold; /* Жирність тексту */
+    background: linear-gradient(90deg, #6366f1, #a855f7); /* Градієнтний фон */
+    text-shadow: 0 0 50px #a855f7;
+    -webkit-background-clip: text; /* Вирізати фон у тексті (для WebKit) */
+    -webkit-text-fill-color: transparent; /* Прозорий текст */
+    display: inline-block; /* Щоб фон застосовувався лише до тексту */
+}
+
+/* Опис */
+.project-card p {
+    letter-spacing: 1.3px;
+    font-weight: 400;
+    color: rgb(167, 167, 167);
+    padding: 0 10px;
+    margin-bottom: 15px;
+}
+
+/* Кнопка */
+.project-card .btn {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 1.8em; /* Розмір тексту */
+    font-weight: bold; /* Жирність тексту */
+    background: linear-gradient(90deg, #6366f1, #a855f7); /* Градієнтний фон */
+    text-shadow: 0 0 50px #a855f7;
+    -webkit-background-clip: text; /* Вирізати фон у тексті (для WebKit) */
+    -webkit-text-fill-color: transparent; /* Прозорий текст */
+    display: inline-block; /* Щоб фон застосовувався лише до тексту */
+}
+
+/* Стилізація кнопки */
+.scroll-to-top {
+    position: fixed; /* Кнопка буде зафіксована */
+    bottom: 20px; /* Відстань від низу */
+    right: 20px; /* Відстань від правого краю */
+    padding: 10px 15px; /* Відступи всередині кнопки */
+    font-size: 20px; /* Розмір шрифта */
+    border-radius: 50%; /* Кругла форма */
+    cursor: pointer; /* Змінюється курсор при наведенні */
+    border: 2px solid #a855f7;
+    transition: all .4s;
+}
+
+/* Кнопка при наведенні */
+.scroll-to-top:hover {
+    background-color: #401a63; /* Темніший колір при наведенні */
+}
+
+/* Кнопка повинна бути видимою після скролінгу */
+.scroll-to-top.show {
+    opacity: 1;
+}
+
+
+.footer {
+    background: linear-gradient(90deg, #6366f1, #a855f7); /* Градієнтний фон */
+    color: #fff;
+    padding: 20px 0;
+}
+
+/* Стилізація контейнера футера */
+.box-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 100px;
+}
+.box-footer h2{
+    display: flex;
+    justify-content: center;
+}
+
+/* Стилізація для кнопок зліва */
+.footer-btn {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Відстань між кнопками */
+}
+.footer-btn a{
+    display: flex;
+    align-items: center;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    padding: 10px;
+    transition: all .3s;
+}
+.footer-btn a:hover{
+    background-color: #000;
+    box-shadow: 0 0 30px 2px #000; /* Світіння обводки при наведенні */
+}
+.footer-icon img, .footer-btn img {
+    width: 30px; /* Можна змінити на потрібний розмір */
+    height: auto;
+}
+
+
+
+
+@media (max-width: 1620px){
+    iframe {
+        border-radius: 40px;
+        box-shadow: 0 0 20px 2px #a855f7;
+        width: 480px;
+        height: 100%;
+    }
+}
+@media (max-width: 1540px){
+    .block-1__right{
+        display: none;
+    }
+    .block-1__info{
+        display: block;
+    }
+}
+@media (max-width: 1360px){
+    .project-card img{
+        width: 100%;
+        height: 240px;
+    }
+}
+@media (max-width: 1260px){
+    .box-img img {
+        width: 260px;
+        height: 260px;
+    }
+    .box-img {
+        width: 230px;
+        height: 230px;
+    }
+    .main-article {
+        min-height: 90vh;
+    }
+}
+@media (max-width: 1130px){
+    .box-main__text h1 {
+        font-size: 1.8em;
+    }
+    .box-main__text p{
+        font-size: 15px;
+    }
+    .box-main__text {
+        width: 450px;
+    }
+    .main-article {
+        min-height: 60vh;
+    }
+    .main-article__content {
+        padding: 50px;
+    }
+    .block-list {
+        padding: 50px 20px;
+    }
+    .projects-container {
+        gap: 10px;
+        justify-content: flex-start;
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 980px){
+    .block-1__left{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .block-colege{
+        margin-bottom: 50px;
+        width: 600px;
+    }
+    .block-kp{
+        margin-bottom: 50px;
+        width: 600px;
+    }
+    .colege-top img {
+        height: 400px;
+    }
+    .kp-top img {
+        height: 400px;
+    }
+    .project-card .btn {
+        font-size: 1.2em;
+    }
+}
+@media (max-width: 950px){
+    .box-main__text {
+        width: 350px;
+    }
+    .box-main__text h1 {
+        font-size: 1.1em;
+    }
+    .box-main__text p {
+        font-size: 12px;
+    }
+    .colege-top h3 {
+        font-size: 1.1em;
+    }
+    .kp-top h3 {
+        font-size: 1.1em;
+    }
+    .colege-top img {
+        height: 300px;
+    }
+    .kp-top img {
+        height: 300px;
+    }
+    .block-colege {
+        width: 500px;
+    }
+    .block-kp {
+        width: 500px;
+    }
+    .colege-bottom h3 {
+        font-size: 1.2em;
+    }
+    .kp-bottom h3 {
+        font-size: 1.2em;
+    }
+}
+@media (max-width: 830px){
+    .box-img {
+        width: 170px;
+        height: 170px;
+    }
+}
+@media (max-width: 770px){
+    .box-main__text p {
+        font-size: 9px;
+    }
+    .box-main__text {
+        width: 250px;
+    }
+    .btn-main__box {
+        padding: 7px;
+    }
+    .block-colege {
+        width: 360px;
+    }
+    .block-kp {
+        width: 360px;
+    }
+    .box-footer h2{
+        display: none;
+    }
+    .main-article {
+        min-height: 60vh;
+    }
+    .block-info {
+        padding: 0px;
+    }
+    .info-title__box {
+        padding: 20px 0;
+    }
+    .info-title__box h2 {
+        font-size: 2.5em;
+    }
+    .block-list__title h2 {
+        font-size: 2.5em;
+    }
+    .block-list__title {
+        padding: 10px 0;
+    }
+    .block-list {
+        padding: 0px 20px;
+    }
+}
+@media (max-width: 700px){
+    .main-box__btn {
+        gap: 15px;
+    }
+    .main-article__content {
+        justify-content: space-between;
+    }
+    .box-main__text p {
+        margin-bottom: 10px;
+    }
+}
+@media (max-width: 660px){
+    .box-img {
+        width: 120px;
+        height: 120px;
+    }
+    .box-main__text p {
+        font-size: 8px;
+    }
+    .main-article {
+        min-height: 50vh;
+    }
+    .kp-bottom p{
+        font-size: 15px;
+    }
+    .colege-bottom p{
+        font-size: 15px;
+    }
+}
+@media (max-width: 460px){
+    .main-article__content {
+        padding: 13px;
+    }
+    .main-article__about p{
+        font-size: 10px;
+    }
+    .box-main__text h1 {
+        font-size: .8em;
+    }
+    .box-main__text p {
+        font-size: 6.5px;
+    }
+    .box-main__text {
+        width: 180px;
+    }
+    .main-box__btn {
+        gap: 10px;
+    }
+    .btn-main__box {
+        padding: 5px;
+    }
+    .scroll-to-top{
+        display: none;
+    }
+}
